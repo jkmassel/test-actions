@@ -10,6 +10,6 @@ jobs:
     steps:
 
     - name: Install AWS CLI
-      run: brew install awscli
+      run: brew install awscli && brew link awscli
     - name: Verify AWS CLI
       run: which awscli
