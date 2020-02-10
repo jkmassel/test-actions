@@ -1,26 +1,14 @@
 name: CI
 
 on: [push]
-
+env:
+  LANGS: "[nl-NL, fr-FR]"
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v2
-    - name: Set up list
-      id: create-list
-      run: echo "::set-output name=list::[foo,bar,baz]"
-    - name: Set up string
-      id: create-string
-      run: echo "::set-output name=string::foo,bar,baz"
   do-stuff:
-    needs: build
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        language: ["en-US", "es-ES"]
+        language: ${{ LANGS }}
     steps:
      - uses: actions/checkout@v1
      - name: Echo String
