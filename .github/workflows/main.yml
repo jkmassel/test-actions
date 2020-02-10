@@ -24,7 +24,7 @@ jobs:
     steps:
      - uses: actions/checkout@v1
      - name: Echo String
-       run: echo ${{ steps.create-string.output.string }}
+       run: echo ${{ steps.create-string.outputs.string }}
      - name: Echo Array
-       run: echo ${{ steps.create-list.output.list }}
+       run: echo ${{ steps.create-list.outputs.list }}
 
