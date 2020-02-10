@@ -9,9 +9,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Run a one-line script
-      id: create-items
-      run: echo ##[set-output name=items;]foo,bar,baz
+    - name: Set up list
+      id: create-list
+      run: echo ##[set-output name=list;]foo,bar,baz
+    - name: Set up string
+      id: create-string
+      run: echo ##[set-output name=string;]"foo,bar,baz"
   do-stuff:
     needs: build
     runs-on: ubuntu-latest
@@ -20,6 +23,8 @@ jobs:
         language: ["en-US", "es-ES"]
     steps:
      - uses: actions/checkout@v1
-     - name: Install Bundler
-       run: echo ${{ steps.create-items.output.items }}
+     - name: Echo String
+       run: echo ${{ steps.create-string.output.string }}
+     - name: Echo Array
+       run: echo ${{ steps.create-list.output.list }}
 
