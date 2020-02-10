@@ -8,8 +8,6 @@ jobs:
     runs-on: macos-latest
 
     steps:
-
-    - name: Install AWS CLI
-      run: brew install awscli && brew link awscli && which awscli
+    - uses: chrislennon/action-aws-cli@v1.1
     - name: Verify AWS CLI
       run: which awscli
