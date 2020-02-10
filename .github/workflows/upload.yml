@@ -10,4 +10,4 @@ jobs:
     steps:
     - uses: chrislennon/action-aws-cli@v1.1
     - name: Verify AWS CLI
-      run: which awscli
+      run: which aws
