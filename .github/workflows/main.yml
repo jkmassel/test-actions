@@ -15,7 +15,6 @@ jobs:
     - name: Set up string
       id: create-string
       run: echo "::set-output name=string::foo,bar,baz"
-"
   do-stuff:
     needs: build
     runs-on: ubuntu-latest
