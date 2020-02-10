@@ -11,7 +11,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Run a one-line script
       id: create-items
-      run: echo "##[set-output name="items"]foo,bar,baz
+      run: echo "##[set-output name=items;]foo,bar,baz
   do-stuff:
     needs: build
     runs-on: ubuntu-latest
