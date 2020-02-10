@@ -13,8 +13,8 @@ jobs:
       id: create-items
       run: echo "##[set-output name="items"]foo,bar,baz
   do-stuff:
-    runs-on: ubuntu-latest
     needs: build
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         language: ["en-US", "es-ES"]
