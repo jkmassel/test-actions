@@ -10,7 +10,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Run a one-line script
-      run: echo "::set-output name=items::strawberry,banana,carrot"
+      id: create-items
+      run: echo "##[set-output items=foo,bar,baz;]"
   do-stuff:
     runs-on: ubuntu-latest
     strategy:
@@ -19,5 +20,5 @@ jobs:
     steps:
      - uses: actions/checkout@v1
      - name: Install Bundler
-       run: echo ${{ items }}
+       run: echo ${{ create-items.output }}
 
