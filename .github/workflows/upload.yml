@@ -8,6 +8,7 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - uses: chrislennon/action-aws-cli@v1.1
+    - name: Install AWS CLI
+      run: brew install awscli    
     - name: Verify AWS CLI
       run: which aws
