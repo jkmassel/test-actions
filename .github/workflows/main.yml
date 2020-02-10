@@ -11,7 +11,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Run a one-line script
       id: create-items
-      run: echo "##[set-output items=foo,bar,baz;]"
+      run: echo "##[set-output name="items"]foo,bar,baz
   do-stuff:
     runs-on: ubuntu-latest
     strategy:
@@ -20,5 +20,5 @@ jobs:
     steps:
      - uses: actions/checkout@v1
      - name: Install Bundler
-       run: echo ${{ steps.create-items.output }}
+       run: echo ${{ steps.create-items.output.items }}
 
